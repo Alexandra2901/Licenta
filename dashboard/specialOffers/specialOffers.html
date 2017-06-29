@@ -1,0 +1,117 @@
+<div class="main-panel">
+  <div class="content" ng-app="specialOffers">
+    <div class="container-fluid">
+      <div ng-cloak>
+        <md-content ng-controller="specialOffersController">
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Easter Offer">
+              <md-content class="md-padding">
+                <h1 class="md-display-2">
+                      <form name="offerForm">
+                          <md-input-container class="md-block" flex-gt-sm>
+                            <label>Room price/night</label>
+                              <input name="roomPrice" ng-model="offer.roomPrice"/>
+                                <div class="hint" ng-if="showHints">###</div>
+                                <div ng-messages="offerForm.roomPrice.$error" ng-if="!showHints">
+                                  <div ng-message="pattern">Please enter a valid price.</div>
+                                </div>
+                          </md-input-container>
+                          <style>
+                            body[dir=rtl] .hint {
+                              right: 2px;
+                              left: auto;
+                              }
+                          </style>
+                          <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                              <h4>Starts at</h4>
+                              <md-datepicker ng-model="specialOffersController.startDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                            </div>
+                          </div>
+                        <div layout-gt-xs="row">
+                          <div flex-gt-xs>
+                            <h4>Ends at</h4>
+                            <md-datepicker ng-model="specialOffersController.endDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                          </div>
+                        </div>
+                      </form>
+                    </h1>
+              </md-content>
+            </md-tab>
+            <md-tab label="Christmas Offer">
+              <md-content class="md-padding">
+                <h1 class="md-display-2">
+                      <form name="offerForm">
+                          <md-input-container class="md-block" flex-gt-sm>
+                            <label>Room price/night</label>
+                              <input name="roomPrice" ng-model="offer.roomPrice"/>
+                                <div class="hint" ng-if="showHints">###</div>
+                                <div ng-messages="offerForm.roomPrice.$error" ng-if="!showHints">
+                                  <div ng-message="pattern">Please enter a valid price.</div>
+                                </div>
+                          </md-input-container>
+                          <style>
+                            body[dir=rtl] .hint {
+                              right: 2px;
+                              left: auto;
+                              }
+                          </style>
+                          <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                              <h4>Starts at</h4>
+                              <md-datepicker ng-model="specialOffersController.startDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                            </div>
+                          </div>
+                        <div layout-gt-xs="row">
+                          <div flex-gt-xs>
+                            <h4>Ends at</h4>
+                            <md-datepicker ng-model="specialOffersController.endDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                          </div>
+                        </div>
+                      </form>
+                    </h1>
+              </md-content>
+            </md-tab>
+            <md-tab label="New Year's Eve Offer">
+              <md-content class="md-padding">
+                <h1 class="md-display-2">
+                      <form name="offerForm">
+                          <md-input-container class="md-block" flex-gt-sm>
+                            <label>Room price/night</label>
+                              <input name="roomPrice" ng-model="offer.roomPrice"/>
+                                <div class="hint" ng-if="showHints">###</div>
+                                <div ng-messages="offerForm.roomPrice.$error" ng-if="!showHints">
+                                  <div ng-message="pattern">Please enter a valid price.</div>
+                                </div>
+                          </md-input-container>
+                          <style>
+                            body[dir=rtl] .hint {
+                              right: 2px;
+                              left: auto;
+                              }
+                          </style>
+                          <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                              <h4>Starts at</h4>
+                              <md-datepicker ng-model="specialOffersController.startDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                            </div>
+                          </div>
+                        <div layout-gt-xs="row">
+                          <div flex-gt-xs>
+                            <h4>Ends at</h4>
+                            <md-datepicker ng-model="specialOffersController.endDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                          </div>
+                        </div>
+                        <div>
+                          <md-button type="submit">Submit</md-button>
+                        </div>
+                      </form>
+                    </h1>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </div>
+    </div>
+  </div>
+</div>

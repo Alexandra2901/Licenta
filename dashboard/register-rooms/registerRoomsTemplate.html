@@ -1,0 +1,46 @@
+<md-dialog aria-label="Add your guest house rooms">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add your guest house rooms</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-content layout-padding>
+          <form name="roomForm">
+            <div layout-gt-sm="row">
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Room number</label>
+                  <input name="roomNumber" ng-model="room.roomNumber" ng-pattern="/^[0-9]{2}$/" />
+                    <div class="hint" ng-if="showHints">#</div>
+                    <div ng-messages="roomForm.roomNumber.$error" ng-if="!showHints">
+                      <div ng-message="pattern"># - Please enter a valid number.</div>
+                    </div>
+              </md-input-container>
+
+              <style>
+                body[dir=rtl] .hint {
+                  right: 2px;
+                  left: auto;
+                  }
+              </style>
+
+              <md-input-container style="margin-right: 10px;">
+                <label>Type</label>
+                <md-select ng-model="type">
+                  <md-option ng-repeat="type in types" value="{{type}}">{{type}}</md-option>
+                </md-select>
+              </md-input-container>
+
+            </div>
+          </form>
+        </md-content>
+      </div>
+    </md-dialog-content>
+
+  </form>
+</md-dialog>

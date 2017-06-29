@@ -1,0 +1,10 @@
+body {
+    background-image: url("../../assets/travelling.jpg");
+}
+
+.big-login, .big-register {
+  line-height: 2;
+  margin-top: 50px;
+  vertical-align: middle;
+  text-align: center;
+}
