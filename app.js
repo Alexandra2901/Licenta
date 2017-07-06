@@ -2,7 +2,6 @@ var graduationThesis = angular.module("graduationThesis", ["ui.router", "ngRoute
 
 
 graduationThesis.config(function($routeProvider) {
-    // Now set up the routes
     $routeProvider
         .when("/", {
             templateUrl: "manageRooms/manageRooms.html"
@@ -21,5 +20,8 @@ graduationThesis.config(function($routeProvider) {
         })
         .when("/manageEmployees", {
             templateUrl: "manageEmployees/manageEmployees.html"
+        })
+        .otherwise("/#", {
+          templateUrl: "index.html"
         });
 });

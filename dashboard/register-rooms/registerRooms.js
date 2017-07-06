@@ -1,6 +1,6 @@
 angular.module('graduationThesis', ['ngMaterial', 'ngMessages'])
 
-.controller('AppCtrl', function($scope, $mdDialog) {
+.controller('RegisterRoomsController', function($scope, $mdDialog) {
     $scope.showHints = true;
     $scope.types = [
           "single",
