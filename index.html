@@ -70,64 +70,39 @@
 
         <ul class="nav">
           <li>
-            <a href="/#/manageRooms">
+            <a ui-sref="manageRooms">
                   <i class="pe-7s-graph"></i>
                   <p>Manage Rooms</p>
             </a>
           </li>
           <li>
-            <a href="/#/specialOffers.html">
+            <a ui-sref="specialOffers">
                         <i class="pe-7s-user"></i>
                         <p>Manage Special Offers</p>
-                    </a>
-          </li>
-          <li>
-            <a href="/#/rates">
-                        <i class="pe-7s-note2"></i>
-                        <p>Manage Rates</p>
-                    </a>
-          </li>
-          <li>
-            <a href="/#/bookRooms">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Book A Room</p>
-                    </a>
-          </li>
-          <li>
-            <a href="/#/reports">
-                        <i class="pe-7s-science"></i>
-                        <p>Reports</p>
-                    </a>
-          </li>
-          <li>
-            <a href="/#/manageEmployees">
-                        <i class="pe-7s-bell"></i>
-                        <p>Manage Employees</p>
                     </a>
           </li>
         </ul>
       </div>
     </div>
     </header>
-    <div ng-view></div>
-
+    <div class="main-panel">
+      <div class="content">
+        <div class="container-fluid">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-<!--   Core JS Files   -->
-<script src="dashboard/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="dashboard/assets/js/bootstrap.min.js" type="text/javascript"></script>
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="dashboard/assets/js/bootstrap-checkbox-radio-switch.js"></script>
-<!--  Charts Plugin -->
-<script src="dashboard/assets/js/chartist.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="dashboard/assets/js/bootstrap-notify.js"></script>
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="dashboard/assets/js/light-bootstrap-dashboard.js"></script>
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="dashboard/assets/js/demo.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app.js"></script>
+<script src="dashboard/bookRooms/bookRooms.js"></script>
+<script src="dashboard/manageEmployees/manageEmployees.js"></script>
+<script src="dashboard/manageRooms/manageRooms.js"></script>
+<script src="dashboard/rates/rates.js"></script>
+<script src="dashboard/specialOffers/specialOffers.js"></script>
+
 
 </html>

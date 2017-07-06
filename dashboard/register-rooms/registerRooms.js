@@ -1,4 +1,4 @@
-angular.module('graduationThesis', ['ngMaterial', 'ngMessages'])
+angular.module('graduationThesis')
 
 .controller('RegisterRoomsController', function($scope, $mdDialog) {
     $scope.showHints = true;

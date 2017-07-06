@@ -1,27 +1,21 @@
-var graduationThesis = angular.module("graduationThesis", ["ui.router", "ngRoute"]);
+var graduationThesis = angular.module("graduationThesis", ["ui.router"]);
 
 
-graduationThesis.config(function($routeProvider) {
-    $routeProvider
-        .when("/", {
-            templateUrl: "manageRooms/manageRooms.html"
+graduationThesis.config(function($stateProvider, $urlRouterProvider) {
+    //
+    // For any unmatched url, redirect to /state1
+    $urlRouterProvider.otherwise("/");
+    //
+    // Now set up the states
+    $stateProvider
+        .state('manageRooms', {
+            name: "manageRooms",
+            url: "/manageRooms",
+            templateUrl: "dashboard/manageRooms/manageRooms.html"
         })
-        .when("/specialOffers", {
-            templateUrl: "specialOffers/specialOffers.html"
-        })
-        .when("/rates", {
-            templateUrl: "rates/rates.html"
-        })
-        .when("/bookRooms", {
-            templateUrl: "bookRooms/bookRooms.html"
-        })
-        .when("/reports", {
-            templateUrl: "reports/reports.html"
-        })
-        .when("/manageEmployees", {
-            templateUrl: "manageEmployees/manageEmployees.html"
-        })
-        .otherwise("/#", {
-          templateUrl: "index.html"
+        .state('specialOffers', {
+            name: "specialOffers",
+            url: "/specialOffers",
+            templateUrl: "dashboard/specialOffers/specialOffers.html"
         });
 });

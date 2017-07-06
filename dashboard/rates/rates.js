@@ -1,5 +1,3 @@
-angular.module('graduationThesis', ['ngMaterial', 'ngMessages'])
-
-.controller('RatesController', function($scope){
+angular.module('graduationThesis').controller('RatesController', function($scope){
 
 })

@@ -1,5 +1,3 @@
-angular.module('graduationThesis', ['ngMaterial', 'ngMessages'])
+angular.module('graduationThesis').controller('ManageRoomsController', function($scope){
 
-.controller('ManageRoomsController', function($scope){
-
-})
+});
