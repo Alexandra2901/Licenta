@@ -9,7 +9,7 @@ angular.module('graduationThesis').controller('RegisterBookingsController', func
   };
 
   // $element.find('input').on('keydown', function(ev) {
-  //        ev.stopPropagation();
+  //         ev.stopPropagation();
   // });
 
   $scope.selected = [];

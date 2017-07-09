@@ -3,7 +3,7 @@ angular.module("graduationThesis").factory("BookingsFactory", function($rootScop
 var bookingsObject = {};
 bookingsObject.bookings = [{
       id: 1,
-      checkin: "08/07/2017",
+      checkin: "22/07/2017",
       checkout: "15/07/2017",
       rooms: [1,2],
       name: "Popescu Ana",
@@ -22,7 +22,7 @@ bookingsObject.bookings = [{
       checkin: "08/07/2017",
       checkout: "15/07/2017",
       rooms: [1,2],
-      name: "Popescu Ana",
+      name: "Popescu Ana12",
       phone: "0745657876"
     }
   ];

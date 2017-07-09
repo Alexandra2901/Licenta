@@ -25,7 +25,7 @@
                     <input ng-model="searchTerm" type="search" placeholder="Search for a room.." class="demo-header-searchbox md-text">
                   </md-select-header>
                   <md-optgroup label="vegetables">
-                    <md-option ng-value="room" ng-repeat="room in rooms | filter:searchTerm">{{room.name}}</md-option>
+                    <md-option ng-value="room" ng-repeat="room in rooms">{{room.name}}</md-option>
                   </md-optgroup>
                 </md-select>
               </md-input-container>
