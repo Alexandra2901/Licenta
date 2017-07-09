@@ -15,12 +15,11 @@ angular.module("graduationThesis").factory("RoomsFactory", function($rootScope) 
 }];
 
 roomsObject.addRoom = function(room) {
-     var ok = true;
      if(room.id) {
        roomsObject.remove(room);
      }
      else {
-      room.id = roomsObject.rooms.length+1;
+      room.id = roomsObject.rooms[roomsObject.rooms.length-1].id +1;
      }
     roomsObject.rooms.push(room);
  };

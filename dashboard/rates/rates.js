@@ -1,45 +1,31 @@
-angular.module('graduationThesis').controller('RatesController', function($scope) {
+angular.module('graduationThesis').controller('RatesController', function($scope, RatesFactory, $mdDialog) {
 
-  $scope.rates = [{
-      id: 1,
-      name: "Room 1",
-      type: "Double",
-      bath: "Yes",
-      weekdaysPrice: "90",
-      weekendPrice: "100"
-    },
-    {
-      id: 2,
-      name: "Room 2",
-      type: "Triple",
-      bath: "Yes",
-      weekdaysPrice: "80",
-      weekendPrice: "100"
-    },
-    {
-      id: 3,
-      name: "Room 3",
-      type: "Triple",
-      bath: "No",
-      weekdaysPrice: "80",
-      weekendPrice: "90"
-    },
-    {
-      id: 4,
-      name: "Room 4",
-      type: "Double",
-      bath: "Yes",
-      weekdaysPrice: "90",
-      weekendPrice: "100"
-    },
-    {
-      id: 5,
-      name: "Room 5",
-      type: "Triple",
-      bath: "Yes",
-      weekdaysPrice: "80",
-      weekendPrice: "100"
-    }
-  ];
+  $scope.rates =RatesFactory.getAllRates();
+  console.log($scope.rates);
+
+  $scope.showRatesModal = function(ev, rate) {
+    $mdDialog.show({
+      locals: {
+        item: rate
+      },
+        controller: "RatesModalController",
+        templateUrl: 'dashboard/ratesModal/ratesModalTemplate.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true,
+        fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+      })
+      .then(function(answer) {
+
+      }, function() {
+
+      });
+  };
+
+  $scope.removeRate = function(rate) {
+    console.log(rate);
+    RatesFactory.remove(rate);
+    $scope.rates = RatesFactory.getAllRates();
+  }
 
 })

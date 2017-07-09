@@ -20,32 +20,32 @@
 
               <md-input-container>
                 <label>Choose a room</label>
-                <md-select ng-model="booking.selectedRooms" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+                <md-select ng-model="booking.rooms" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
                   <md-select-header class="demo-select-header">
                     <input ng-model="searchTerm" type="search" placeholder="Search for a room.." class="demo-header-searchbox md-text">
                   </md-select-header>
-                  <md-optgroup label="vegetables">
-                    <md-option ng-value="room" ng-repeat="room in rooms | filter:searchTerm">{{room.name}}</md-option>
+                  <md-optgroup label="rooms">
+                    <md-option ng-value="room.name" ng-repeat="room in rooms">{{room.name}}</md-option>
                   </md-optgroup>
                 </md-select>
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm>
                 <label>Occupant's name</label>
-                <input name="occupantName" ng-model="booking.occupantName" />
+                <input ng-model="booking.name" />
                 <div ng-messages="roomForm.occupantName.$error" ng-if="!showHints">
                 </div>
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm>
                 <label>Occupant's phone number</label>
-                <input ng-model="booking.occupantPhone" />
+                <input ng-model="booking.phone" />
                 <div ng-messages="roomForm.occupantPhone.$error" ng-if="!showHints">
                 </div>
               </md-input-container>
 
               <div layout="row" layout-align="center center">
-                <md-button class="md-raised" style="background-color:#F5CA98;" type="submit" ng-click="addBooking()">Save booking</md-button>
+                <md-button class="md-raised" style="background-color:#F5CA98;" type="submit" ng-click="saveBooking()">Save booking</md-button>
               </div>
 
             </div>

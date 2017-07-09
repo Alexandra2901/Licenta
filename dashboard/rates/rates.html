@@ -11,7 +11,7 @@
               <table class="table table-hover table-striped">
                 <thead>
                   <th>Id</th>
-                  <th>Room number</th>
+                  <th>Room name</th>
                   <th>Room type</th>
                   <th>Bathroom in room</th>
                   <th>Weekdays price/night</th>
@@ -27,10 +27,10 @@
                     <td>{{rate.weekdaysPrice}}</td>
                     <td>{{rate.weekendPrice}}</td>
                     <td class="td-actions">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="showAdvanced($event)">
+                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="showRatesModal($event, rate)">
                             <i class="fa fa-edit"></i>
                         </button>
-                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" ng-click="removeItem(room)">
+                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" ng-click="removeRate(rate)">
                             <i class="fa fa-times"></i>
                         </button>
                     </td>

@@ -1,0 +1,69 @@
+<md-dialog aria-label="Edit your rates" style="width:600px;">
+  <form ng-cloak>
+    <md-toolbar style="background-color:#F5CA98;">
+      <div class="md-toolbar-tools">
+        <h2>Edit your rates</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-content layout-padding>
+          <form name="rateForm">
+            <div layout="column">
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Room name</label>
+                <input  ng-model="rate.name" />
+                <div ng-messages="rateForm.rateNumber.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <style>
+                body[dir=rtl] .hint {
+                  right: 2px;
+                  left: auto;
+                }
+              </style>
+
+              <md-input-container style="margin-right: 10px;">
+                <label>Type</label>
+                <md-select ng-model="rate.type">
+                  <md-option  ng-repeat="type in types" ng-value="type">{{type}}</md-option>
+                </md-select>
+              </md-input-container>
+
+              <md-input-container style="margin-right: 10px;">
+                <label>Bathroom in room</label>
+                <md-select ng-model="rate.bath">
+                  <md-option ng-repeat="bath in bathTypes" ng-value="bath">{{bath}}</md-option>
+                </md-select>
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Weekdays price</label>
+                <input  ng-model="rate.weekdaysPrice" />
+                <div ng-messages="rateForm.rateNumber.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Weekend price</label>
+                <input  ng-model="rate.weekendPrice" />
+                <div ng-messages="rateForm.rateNumber.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <div layout="row" layout-align="center center">
+                <md-button class="md-raised" style="background-color:#F5CA98;" type="submit" ng-click="edit()">Save</md-button>
+              </div>
+
+            </div>
+          </form>
+        </md-content>
+      </div>
+    </md-dialog-content>
+
+  </form>
+</md-dialog>

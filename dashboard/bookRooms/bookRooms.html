@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="card">
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+            <input type="text" id="myInput" ng-model="searchBox" placeholder="Search...">
 
             <div class="header">
               <md-button class="md-raised" ng-click="showModal($event)" style="background-color:#F5CA98;">Add booking</md-button>
@@ -23,15 +23,15 @@
                   <th>Actions</th>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="booking in bookings">
+                  <tr ng-repeat="booking in bookings | filter:searchBox">
                     <td>{{booking.id}}</td>
-                    <td>{{booking.checkin}}</td>
-                    <td>{{booking.checkout}}</td>
-                    <td>{{booking.rooms.toString()}}</td>
+                    <td>{{booking.checkin.toDateString()}}</td>
+                    <td>{{booking.checkout.toDateString()}}</td>
+                    <td>{{arrayToString(booking.rooms)}}</td>
                     <td>{{booking.name}}</td>
-                    <td>{{booking.phone}}</td>  
+                    <td>{{booking.phone}}</td>
                     <td class="td-actions">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="showModal($event)">
+                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="showModal($event, booking)">
                             <i class="fa fa-edit"></i>
                         </button>
                       <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" ng-click="remove(booking)">
