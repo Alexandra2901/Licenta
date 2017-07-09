@@ -28,20 +28,13 @@ ratesObject.rates =[{
 ];
 
 ratesObject.editRate = function(rate) {
-       var ok = true;
-       rate.id = ratesObject.rates.length+1;
-       for (var i = 0; i < ratesObject.rates.length; i++) {
-           if (ratesObject.rates[i].id == rate.id) {
-               ok = false;
-               break;
-           }
-       }
-       if (ok) {
-           console.log("Added ", rate);
-           ratesObject.rates.push(rate);
-       } else {
-           console.log("Already exists ", rate);
-       }
+  if(rate.id) {
+    ratesObject.remove(rate);
+  }
+  else {
+   rate.id = ratesObject.rates[ratesObject.rates.length-1].id +1;
+  }
+ ratesObject.rates.push(rate);
    };
 
 ratesObject.getAllRates = function() {
