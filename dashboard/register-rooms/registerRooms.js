@@ -1,33 +1,21 @@
-angular.module('graduationThesis')
+angular.module('graduationThesis').controller('RegisterRoomsController', function($scope, $mdDialog, item, RoomsFactory) {
+  $scope.showHints = true;
+  $scope.room =  item || {};
 
-.controller('RegisterRoomsController', function($scope, $mdDialog) {
-    $scope.showHints = true;
-    $scope.types = [
-          "single",
-          "double",
-          "triple"
-      ];
-    $scope.room = {
-      room: "1",
-      type: ""
-    };
+  $scope.types = [
+    "Single",
+    "Double",
+    "Triple"
+  ];
 
-    var confirm = $mdDialog.confirm()
-          .targetEvent(ev)
-          .ok('Next')
-          .cancel('Finish');
-    $scope.showAdvanced = function(ev) {
-      $mdDialog.show({
-      controller: DialogController,
-      templateUrl: 'registerRoomsTemplate.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:false,
-      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-      }).then(function(answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
-          }, function() {
-            $scope.status = 'You cancelled the dialog.';
-          });
-        };
-  });
+  $scope.bathTypes = [
+    "Yes",
+    "No "
+  ];
+
+  $scope.add = function() {
+    RoomsFactory.addRoom($scope.room);
+    $mdDialog.hide();
+  }
+
+});

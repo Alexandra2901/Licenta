@@ -1,8 +1,8 @@
-<md-dialog aria-label="Add your guest house rooms" ng-controller="RegisterRoomsController">
+<md-dialog aria-label="Add your guest house rooms" style="width:600px;">
   <form ng-cloak>
-    <md-toolbar>
+    <md-toolbar style="background-color:#F5CA98;">
       <div class="md-toolbar-tools">
-        <h2>Add your guest house rooms</h2>
+        <h2>Guest house room configuration</h2>
         <span flex></span>
       </div>
     </md-toolbar>
@@ -11,30 +11,39 @@
       <div class="md-dialog-content">
         <md-content layout-padding>
           <form name="roomForm">
-            <div layout-gt-sm="row">
+            <div layout="column">
 
               <md-input-container class="md-block" flex-gt-sm>
-                <label>Room number</label>
-                  <input name="roomNumber" ng-model="room.roomNumber" ng-pattern="/^[0-9]{2}$/" />
-                    <div class="hint" ng-if="showHints">#</div>
-                    <div ng-messages="roomForm.roomNumber.$error" ng-if="!showHints">
-                      <div ng-message="pattern"># - Please enter a valid number.</div>
-                    </div>
+                <label>Room name</label>
+                <input  ng-model="room.name" />
+                <div ng-messages="roomForm.roomNumber.$error" ng-if="!showHints">
+                </div>
               </md-input-container>
 
               <style>
                 body[dir=rtl] .hint {
                   right: 2px;
                   left: auto;
-                  }
+                }
               </style>
 
               <md-input-container style="margin-right: 10px;">
                 <label>Type</label>
-                <md-select ng-model="type">
-                  <md-option ng-repeat="type in types" value="{{type}}">{{type}}</md-option>
+                <md-select ng-model="room.type">
+                  <md-option  ng-repeat="type in types" ng-value="type">{{type}}</md-option>
                 </md-select>
               </md-input-container>
+
+              <md-input-container style="margin-right: 10px;">
+                <label>Bathroom in room</label>
+                <md-select ng-model="room.bath">
+                  <md-option ng-repeat="bath in bathTypes" ng-value="bath">{{bath}}</md-option>
+                </md-select>
+              </md-input-container>
+
+              <div layout="row" layout-align="center center">
+                <md-button class="md-raised" style="background-color:#F5CA98;" type="submit" ng-click="add()">Save</md-button>
+              </div>
 
             </div>
           </form>

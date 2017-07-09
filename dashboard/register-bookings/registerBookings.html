@@ -1,0 +1,58 @@
+<md-dialog aria-label="Add your guest house rooms" style="width:600px;">
+  <form ng-cloak>
+    <md-toolbar style="background-color:#F5CA98;">
+      <div class="md-toolbar-tools">
+        <h2>Book a room</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-content layout-padding>
+          <form name="roomForm">
+            <div layout="column">
+
+              <div flex-gt-xs>
+                <md-datepicker ng-model="booking.checkin" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                <md-datepicker ng-model="booking.checkout" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+              </div>
+
+              <md-input-container>
+                <label>Choose a room</label>
+                <md-select ng-model="booking.selectedRooms" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+                  <md-select-header class="demo-select-header">
+                    <input ng-model="searchTerm" type="search" placeholder="Search for a room.." class="demo-header-searchbox md-text">
+                  </md-select-header>
+                  <md-optgroup label="vegetables">
+                    <md-option ng-value="room" ng-repeat="room in rooms | filter:searchTerm">{{room.name}}</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Occupant's name</label>
+                <input name="occupantName" ng-model="booking.occupantName" />
+                <div ng-messages="roomForm.occupantName.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Occupant's phone number</label>
+                <input ng-model="booking.occupantPhone" />
+                <div ng-messages="roomForm.occupantPhone.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <div layout="row" layout-align="center center">
+                <md-button class="md-raised" style="background-color:#F5CA98;" type="submit" ng-click="addBooking()">Save booking</md-button>
+              </div>
+
+            </div>
+          </form>
+        </md-content>
+      </div>
+    </md-dialog-content>
+
+  </form>
+</md-dialog>

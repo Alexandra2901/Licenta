@@ -1,4 +1,4 @@
-var graduationThesis = angular.module("graduationThesis", ["ui.router"]);
+var graduationThesis = angular.module("graduationThesis", ["ui.router","ngMaterial"]);
 
 
 graduationThesis.config(function($stateProvider, $urlRouterProvider) {
@@ -17,5 +17,25 @@ graduationThesis.config(function($stateProvider, $urlRouterProvider) {
             name: "specialOffers",
             url: "/specialOffers",
             templateUrl: "dashboard/specialOffers/specialOffers.html"
+        })
+        .state('rates', {
+            name: "rates",
+            url: "/rates",
+            templateUrl: "dashboard/rates/rates.html"
+        })
+        .state('booking', {
+            name: "booking",
+            url: "/booking",
+            templateUrl: "dashboard/bookRooms/bookRooms.html"
+        })
+        .state('reports', {
+            name: "reports",
+            url: "/reports",
+            templateUrl: "dashboard/reports/reports.html"
+        })
+        .state('employees', {
+            name: "employees",
+            url: "/employees",
+            templateUrl: "dashboard/manageEmployees/manageEmployees.html"
         });
 });

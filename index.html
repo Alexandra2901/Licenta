@@ -9,7 +9,9 @@
   <title>Graduation Thesis</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
   <!-- Bootstrap core CSS     -->
   <link href="dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Animation library for notifications   -->
@@ -22,6 +24,9 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
   <link href="dashboard/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link href="dashboard/register-bookings/registerBookings.css" rel="stylesheet" />
+  <link href="dashboard/register-rooms/registerRooms.css" rel="stylesheet" />
+  <link href="dashboard/bookRooms/bookRooms.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,11 +44,6 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="">
-                <p>Account</p>
-              </a>
-            </li>
-            <li>
               <a href="#">
                 <p>Log out</p>
               </a>
@@ -54,13 +54,11 @@
       </div>
     </nav>
 
-    <div class="sidebar" data-color="red" data-image="assets/img/sidebar-5.jpg">
-
+    <div class="sidebar" data-color="orange" data-image="dashboard/assets/img/sidebar-2.jpg">
       <!--
     Observation 1: the color of the sidebar can be changed using: data-color="blue | azure | green | orange | red | purple"
     Observation 2: add an image using data-image tag
     -->
-
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="" class="simple-text">
@@ -81,6 +79,30 @@
                         <p>Manage Special Offers</p>
                     </a>
           </li>
+          <li>
+            <a ui-sref="rates">
+                        <i class="pe-7s-user"></i>
+                        <p>Manage Rates</p>
+                    </a>
+          </li>
+          <li>
+            <a ui-sref="booking">
+                        <i class="pe-7s-user"></i>
+                        <p>Book a room</p>
+                    </a>
+          </li>
+          <li>
+            <a ui-sref="reports">
+                        <i class="pe-7s-user"></i>
+                        <p>Reports</p>
+                    </a>
+          </li>
+          <li>
+            <a ui-sref="employees">
+                        <i class="pe-7s-user"></i>
+                        <p>Manage Employees</p>
+                    </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -93,16 +115,43 @@
       </div>
     </div>
   </div>
+
+  <footer class="footer"
+    style="position:absolute;
+    width:100%;
+    bottom:0px;">
+    <div class="container-fluid">
+      <p class="copyright pull-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script> Graduation Thesis
+      </p>
+    </div>
+  </footer>
 </body>
 
-<script src="bower_components/angular/angular.js"></script>
+<!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- <script src="bower_components/angular/angular.js"></script> -->
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app.js"></script>
 <script src="dashboard/bookRooms/bookRooms.js"></script>
+<script src="dashboard/bookRooms/bookRooms.service.js"></script>
 <script src="dashboard/manageEmployees/manageEmployees.js"></script>
 <script src="dashboard/manageRooms/manageRooms.js"></script>
+<script src="dashboard/manageRooms/rooms.service.js"></script>
 <script src="dashboard/rates/rates.js"></script>
 <script src="dashboard/specialOffers/specialOffers.js"></script>
-
+<script src="dashboard/register-rooms/registerRooms.js"></script>
+<script src="dashboard/register-bookings/registerBookings.js"></script>
+<script src="dashboard/bookRooms/bookRooms.js"></script>
 
 </html>

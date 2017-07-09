@@ -10,54 +10,30 @@
             <div class="content table-responsive table-full-width">
               <table class="table table-hover table-striped">
                 <thead>
+                  <th>Id</th>
                   <th>Room number</th>
                   <th>Room type</th>
                   <th>Bathroom in room</th>
                   <th>Weekdays price/night</th>
                   <th>Weekend price/night</th>
+                  <th>Actions</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Double</td>
-                    <td>Yes</td>
-                    <td>80</td>
-                    <td>100</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Triple</td>
-                    <td>Yes</td>
-                    <td>85</td>
-                    <td>95</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Single</td>
-                    <td>No</td>
-                    <td>90</td>
-                    <td>95</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Single</td>
-                    <td>Yes</td>
-                    <td>90</td>
-                    <td>95</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Double</td>
-                    <td>No</td>
-                    <td>80</td>
-                    <td>100</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>Double</td>
-                    <td>Yes</td>
-                    <td>80</td>
-                    <td>100</td>
+                  <tr ng-repeat="rate in rates">
+                    <td>{{rate.id}}</td>
+                    <td>{{rate.name}}</td>
+                    <td>{{rate.type}}</td>
+                    <td>{{rate.bath}}</td>
+                    <td>{{rate.weekdaysPrice}}</td>
+                    <td>{{rate.weekendPrice}}</td>
+                    <td class="td-actions">
+                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="showAdvanced($event)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" ng-click="removeItem(room)">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
