@@ -39,7 +39,7 @@ graduationThesis.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: "dashboard/manageEmployees/manageEmployees.html"
         }).state('editEmployeesPage', {
             name: "editEmployeesPage",
-            url: "/editEmployeesPage",
+            url: "/editEmployeesPage/:idEmployee",
             templateUrl: "dashboard/employeePage/employee.html"
         });
 });

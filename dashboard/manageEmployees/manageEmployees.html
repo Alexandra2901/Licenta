@@ -36,9 +36,11 @@
                     <td>{{employee.city}}</td>
                     <td>{{employee.country}}</td>
                     <td class="td-actions">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="editEmployees($event, employee)">
+                      <a ui-sref="editEmployeesPage({idEmployee: employee.id})">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="editEmployees($event, employee)">
                             <i class="fa fa-edit"></i>
                         </button>
+                      </a>
                       <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" ng-click="removeEmployee(employee)">
                             <i class="fa fa-times"></i>
                         </button>
