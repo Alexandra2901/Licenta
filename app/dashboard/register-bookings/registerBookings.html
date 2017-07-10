@@ -20,18 +20,9 @@
 
               <md-input-container>
                 <label>Choose a room</label>
-                <md-select ng-model="booking.rooms" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
-                  <md-select-header class="demo-select-header">
-                    <input ng-model="searchTerm" type="search" placeholder="Search for a room.." class="demo-header-searchbox md-text">
-                  </md-select-header>
-<<<<<<< HEAD
+                <md-select ng-model="booking.rooms" data-md-container-class="selectdemoSelectHeader" multiple>
                   <md-optgroup label="rooms">
                     <md-option ng-value="room.name" ng-repeat="room in rooms">{{room.name}}</md-option>
-=======
-                  <md-optgroup label="vegetables">
-                    <md-option ng-value="room" ng-repeat="room in rooms">{{room.name}}</md-option>
->>>>>>> 050b039974efabeab96d83533abfdfdac12a643a
-                  </md-optgroup>
                 </md-select>
               </md-input-container>
 

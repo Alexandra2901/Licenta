@@ -6,7 +6,7 @@
           <div class="card">
             <div class="header">
               <h4 class="title">Employees</h4>
-                <a ui-sref="editEmployeesPage()">
+                <a ui-sref="editEmployeesPage({idEmployee: (employees.length)+1})">
                   <md-button class="md-raised" style="background-color:#F5CA98;">Add employee</md-button>
                 </a>
             </div>
@@ -37,7 +37,7 @@
                     <td>{{employee.country}}</td>
                     <td class="td-actions">
                       <a ui-sref="editEmployeesPage({idEmployee: employee.id})">
-                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" ng-click="editEmployees($event, employee)">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
                             <i class="fa fa-edit"></i>
                         </button>
                       </a>

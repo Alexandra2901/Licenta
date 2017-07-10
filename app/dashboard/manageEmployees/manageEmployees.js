@@ -6,4 +6,5 @@ angular.module('graduationThesis').controller('ManageEmployeesController', funct
     EmployeesFactory.remove(employee);
     $scope.employees = EmployeesFactory.getAllEmployees();
   }
+
 })

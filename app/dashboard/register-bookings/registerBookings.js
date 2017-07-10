@@ -4,14 +4,6 @@ angular.module('graduationThesis').controller('RegisterBookingsController', func
 
   $scope.rooms = RoomsFactory.getAllRooms();
 
-  $scope.clearSearchTerm = function() {
-       $scope.searchTerm = '';
-  };
-
-  // $element.find('input').on('keydown', function(ev) {
-  //         ev.stopPropagation();
-  // });
-
   $scope.saveBooking = function() {
     BookingsFactory.addBooking($scope.booking);
     $mdDialog.hide();

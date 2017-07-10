@@ -10,7 +10,8 @@ angular.module("graduationThesis").factory("EmployeesFactory", function($rootSco
     email: "mircea@yahoo.com",
     address: "Unirii 47",
     city: "Bucharest",
-    country: "Romania"
+    country: "Romania",
+    image: "dashboard/assets/img/faces/face-3.jpg"
   },
 {
   id: 2,
@@ -21,7 +22,8 @@ angular.module("graduationThesis").factory("EmployeesFactory", function($rootSco
   email: "ana@yahoo.com",
   address: "Unirii 47",
   city: "Bucharest",
-  country: "Romania"
+  country: "Romania",
+  image: "dashboard/assets/img/faces/face-6.jpg"
 }];
 
 employeesObject.addEmployee = function(employee) {
@@ -30,6 +32,7 @@ employeesObject.addEmployee = function(employee) {
      }
      else {
       employee.id = employeesObject.employees[employeesObject.employees.length-1].id +1;
+      employee.image = "dashboard/assets/img/faces/face-0.jpg";
      }
     employeesObject.employees.push(employee);
  };
