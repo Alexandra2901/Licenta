@@ -40,6 +40,16 @@
                   <div ng-messages="userForm.password.$error" ng-hide="true"></div>
                 </md-input-container>
 
+                <div flex="5" hide-xs hide-sm>
+                  <!-- Spacer //-->
+                </div>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Confirm password</label>
+                  <input name="password" ng-model="user.password" required />
+                  <div ng-messages="userForm.password.$error" ng-hide="true"></div>
+                </md-input-container>
+
                 <style>
                   body[dir=rtl] .hint {
                     right: 2px;
@@ -49,7 +59,7 @@
 
                 <div layout="row" layout-align="center center">
                   <a ui-sref="manageRooms()">
-                    <md-button class="md-raised" style="background-color:#ccc;" type="submit">Login</md-button>
+                    <md-button class="md-raised" style="background-color:#ccc;" type="submit" onClick="addUser()">Register</md-button>
                   </a>
                 </div>
 
@@ -58,7 +68,7 @@
                 </div>
 
                 <h2 style="font-size:15px;width: 100%; text-align: left;">
-                  Looking to <a href="register.html">create an account</a>?
+                  Already have an account? <a href="register.html">Login</a>!
                 </h2>
 
               </div>

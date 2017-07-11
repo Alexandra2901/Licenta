@@ -32,6 +32,7 @@
   <link href="dashboard/register-bookings/registerBookings.css" rel="stylesheet" />
   <link href="dashboard/register-rooms/registerRooms.css" rel="stylesheet" />
   <link href="dashboard/bookRooms/bookRooms.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
 </head>
 
@@ -102,10 +103,12 @@
             </button>
           </div>
           <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" style="height:50px;margin:0px;">
               <li>
-                <a href="../login_register_modal/login_register_modal.html">
-                  <p>Log out</p>
+                <a ui-sref="login()"
+                      style="margin-top: 0px; margin-right:0px; margin-bottom: 0px; margin-left: 0px;
+                                padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;">
+                  <md-button style="height:50px; margin-top: 0px; margin-bottom: 0px;">Log out</md-button>
                 </a>
               </li>
               <li class="separator hidden-lg hidden-md"></li>
@@ -149,7 +152,6 @@
 
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app.js"></script>
-<script src="dashboard/login_register_modal/login_register_modal.js"></script>
 <script src="dashboard/login_register/login.js"></script>
 <script src="dashboard/login_register/login.service.js"></script>
 <script src="dashboard/bookRooms/bookRooms.js"></script>
