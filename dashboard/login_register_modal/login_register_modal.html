@@ -1,0 +1,46 @@
+<md-dialog aria-label="Please login!" style="width:600px;">
+  <form ng-cloak>
+    <md-toolbar style="background-color:#F5CA98;">
+      <div class="md-toolbar-tools">
+        <h2>Please login!</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-content layout-padding>
+          <form name="userForm">
+            <div layout="column">
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <input ng-model="user.email" ng-value="Email" />
+                <div ng-messages="userForm.user.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <style>
+                body[dir=rtl] .hint {
+                  right: 2px;
+                  left: auto;
+                }
+              </style>
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <input ng-model="user.password" ng-value="Password" />
+                <div ng-messages="userForm.password.$error" ng-if="!showHints">
+                </div>
+              </md-input-container>
+
+              <div layout="row" layout-align="center center">
+                <md-button class="md-raised" style="background-color:#F5CA98;" type="submit" ng-click="addUser()">Save</md-button>
+              </div>
+
+            </div>
+          </form>
+        </md-content>
+      </div>
+    </md-dialog-content>
+
+  </form>
+</md-dialog>

@@ -10,7 +10,7 @@ graduationThesis.config(function($stateProvider, $urlRouterProvider) {
     .state('login', {
       name: "login",
       url: "/",
-      templateUrl: "login_register_modal/login_register_modal.html"
+      templateUrl: "dashboard/login_register/login.html"
     })
     .state('manageRooms', {
       name: "manageRooms",
