@@ -1,3 +1,12 @@
+function addCss(fileName) {
+   var link1 = '<link rel="stylesheet" type="text/css" href="' + fileName + '">'
+   $('head').append(link1)
+   var link2 = '<link rel="stylesheet" type="text/css" href="' + fileName + '">'
+   $('head').append(link2)
+   var link3 = '<link rel="stylesheet" type="text/css" href="' + fileName + '">'
+   $('head').append(link3)
+}
+
 function showRegisterForm(){
     $('.loginBox').fadeOut('fast',function() {
         $('.registerBox').fadeIn('fast');

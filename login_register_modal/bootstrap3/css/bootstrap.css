@@ -6043,7 +6043,7 @@ button.close {
 }
 
 .modal-backdrop.in {
-  opacity: 0.5;
+  opacity: 0;
   filter: alpha(opacity=50);
 }
 
