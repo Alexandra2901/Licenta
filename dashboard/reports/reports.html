@@ -1,32 +1,51 @@
 <div class="wrapper" ng-controller="ReportsController" style=" font-family: Diavlo, Diavlo Book, sans-serif;">
   <div class="content">
     <div class="container-fluid">
+
       <div class="row">
         <div class="col-md-6">
           <div class="card">
-
             <div class="header">
-              <h4 class="title">Statistics 1</h4>
+              <h4 class="title">Number of reservations per month</h4>
             </div>
-
             <div class="content">
-              <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
-              </canvas
+              <canvas id="lineChart"></canvas>
             </div>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="card">
-
             <div class="header">
-              <h4 class="title">Statistics 2</h4>
+              <h4 class="title">Average occupancy period per month</h4>
             </div>
+            <div class="content">
+              <canvas id="pieChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- <div class="content">
-              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
-              </canvas>
-            </div> -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="header">
+              <h4 class="title">Profit per month</h4>
+            </div>
+            <div class="content">
+              <canvas id="doughnutChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="header">
+              <h4 class="title">Number of single and double rooms per month</h4>
+            </div>
+            <div class="content">
+              <canvas id="barGraph"></canvas>
+            </div>
           </div>
         </div>
       </div>
