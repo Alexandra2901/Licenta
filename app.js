@@ -17,11 +17,6 @@ graduationThesis.config(function($stateProvider, $urlRouterProvider) {
       url: "/manageRooms",
       templateUrl: "dashboard/manageRooms/manageRooms.html"
     })
-    .state('specialOffers', {
-      name: "specialOffers",
-      url: "/specialOffers",
-      templateUrl: "dashboard/specialOffers/specialOffers.html"
-    })
     .state('rates', {
       name: "rates",
       url: "/rates",
