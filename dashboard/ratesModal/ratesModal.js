@@ -14,7 +14,12 @@ angular.module('graduationThesis').controller('RatesModalController', function($
   ];
 
   $scope.edit = function() {
-    RatesFactory.editRate($scope.rate);
-    $mdDialog.hide();
-  }
+    RatesFactory.editRate($scope.rate).then(function (result) {
+      // Hide the window after the request is finished
+      $mdDialog.hide();
+    }, function (error) {
+      alert("Error!");
+    });
+  };
+  
 });

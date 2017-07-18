@@ -1,6 +1,6 @@
-angular.module('graduationThesis').controller('RegisterRoomsController', function($scope, $mdDialog, item, RoomsFactory) {
+angular.module('graduationThesis').controller('RegisterRoomsController', function ($scope, $mdDialog, item, RoomsFactory) {
   $scope.showHints = true;
-  $scope.room =  item || {};
+  $scope.room = item || {};
 
   $scope.types = [
     "Single",
@@ -13,9 +13,13 @@ angular.module('graduationThesis').controller('RegisterRoomsController', functio
     "No "
   ];
 
-  $scope.add = function() {
-    RoomsFactory.addRoom($scope.room);
-    $mdDialog.hide();
+  $scope.add = function () {
+    RoomsFactory.addRoom($scope.room).then(function (result) {
+      // Hide the window after the request is finished
+      $mdDialog.hide();
+    }, function (error) {
+      alert("Error!");
+    });
   }
 
 });

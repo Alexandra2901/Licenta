@@ -5,7 +5,11 @@ angular.module('graduationThesis').controller('RegisterBookingsController', func
   $scope.rooms = RoomsFactory.getAllRooms();
 
   $scope.saveBooking = function() {
-    BookingsFactory.addBooking($scope.booking);
-    $mdDialog.hide();
+    BookingsFactory.addBooking($scope.booking).then(function (result) {
+      // Hide the window after the request is finished
+      $mdDialog.hide();
+    }, function (error) {
+      alert("Error!");
+    });
   }
 });

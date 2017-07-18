@@ -5,12 +5,14 @@
         <div class="col-md-12">
           <div class="card">
             <div class="header">
-              <h4 class="title">Rates</h4>
+                <h4 class="title">Rates</h4>
+                <md-button class="md-raised" ng-click="showRatesModal($event)" style="background-color:#F5CA98;float:right;margin-top:-35px;">
+                    Add
+                </md-button>
             </div>
             <div class="content table-responsive table-full-width">
               <table class="table table-hover table-striped">
                 <thead>
-                  <th>Id</th>
                   <th>Room name</th>
                   <th>Room type</th>
                   <th>Bathroom in room</th>
@@ -20,7 +22,6 @@
                 </thead>
                 <tbody>
                   <tr ng-repeat="rate in rates">
-                    <td>{{rate.id}}</td>
                     <td>{{rate.name}}</td>
                     <td>{{rate.type}}</td>
                     <td>{{rate.bath}}</td>

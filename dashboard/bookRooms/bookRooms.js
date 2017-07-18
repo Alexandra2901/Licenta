@@ -1,7 +1,15 @@
 angular.module('graduationThesis').controller('BookRoomsController', function($scope, BookingsFactory, $mdDialog) {
 
-  $scope.bookings = BookingsFactory.getAllBookings();
-  console.log($scope.bookings);
+  $scope.bookings = [];
+
+  var initData = function () {
+    BookingsFactory.getAllBookings().then(function (result) {
+      console.log('Bookings ', result.data);
+      $scope.bookings = result.data;
+    }, function (error) {
+      alert("Error!");
+    });
+  }
 
   $scope.showModal = function(ev, booking) {
     $mdDialog.show({
@@ -16,9 +24,8 @@ angular.module('graduationThesis').controller('BookRoomsController', function($s
         fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
       })
       .then(function(answer) {
-
+        initData(); // Reload data when the popup closes
       }, function() {
-
       });
   };
 
@@ -28,8 +35,14 @@ angular.module('graduationThesis').controller('BookRoomsController', function($s
 
   $scope.remove = function(booking) {
     console.log(booking);
-    BookingsFactory.removeBooking(booking);
-    $scope.bookings = BookingsFactory.getAllBookings();
+    BookingsFactory.removeBooking(booking).then(function (result) {
+      initData(); // Refresh data - repopulate the array with the data from the server
+    }, function (error) {
+      alert("Error!");
+    });
   }
+
+  // Load data
+  initData();
 
 })
