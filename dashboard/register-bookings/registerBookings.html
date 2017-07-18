@@ -22,7 +22,7 @@
                 <label>Choose a room</label>
                 <md-select ng-model="booking.rooms" data-md-container-class="selectdemoSelectHeader" multiple>
                   <md-optgroup>
-                    <md-option ng-value="room.name" ng-repeat="room in rooms">{{room.name}}</md-option>
+                    <md-option ng-value="room._id" ng-repeat="room in rooms">{{room.name}}</md-option>
                 </md-select>
               </md-input-container>
 

@@ -146,6 +146,7 @@ var bookingsRouter = express.Router();
 bookingsRouter.get('/', function (req, res) {
     Booking
         .find({})
+        .populate('rooms')
         .exec(function (err, result) {
             if (err) {
                 return res.sendStatus(500);
@@ -169,6 +170,7 @@ bookingsRouter.get('/:id', function (req, res) {
     var id = req.params.id;
     Booking
         .findById(id)
+        .populate('rooms')
         .exec(function (err, item) {
             if (err) {
                 return res.sendStatus(500);
