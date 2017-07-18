@@ -1,8 +1,38 @@
 angular.module("graduationThesis").controller('ReportsController', function($scope, BookingsFactory, RoomsFactory, RatesFactory, $filter) {
 
- var bookings = BookingsFactory.getAllBookings();
- var allRooms = RoomsFactory.getAllRooms();
- var rates = RatesFactory.getAllRates();
+ $scope.bookings = [];
+ var initBookings = function () {
+   BookingsFactory.getAllBookings().then(function (result) {
+     console.log('Bookings ', result.data);
+     $scope.bookings = result.data;
+   }, function (error) {
+     alert("Error!");
+   });
+ };
+initBookings();
+
+ $scope.allRooms = [];
+ var initRooms = function () {
+   RoomsFactory.getAllRooms().then(function (result) {
+     console.log('Rooms ', result.data);
+     $scope.allRooms = result.data;
+   }, function (error) {
+     alert("Error!");
+   });
+ };
+initRooms();
+
+ $scope.rates = [];
+ var initRates = function () {
+   RatesFactory.getAllRates().then(function (result) {
+     console.log('Rates ', result.data);
+     $scope.rates = result.data;
+   }, function (error) {
+     alert("Error!");
+   });
+ };
+ initRates();
+
  var reservations = [];
  var singles = [];
  var doubles = [];
@@ -20,8 +50,8 @@ angular.module("graduationThesis").controller('ReportsController', function($sco
    averages[i] = 0;
  }
 
- for(var i=0; i<bookings.length; i++) {
-       switch ($filter('date')(bookings[i].checkin, 'MMMM')) {
+ for(var i=0; i<$scope.bookings.length; i++) {
+       switch ($filter('date')($scope.bookings[i].checkin, 'MMMM')) {
         case 'January':
             reservations[0]++;
             break;
@@ -61,27 +91,27 @@ angular.module("graduationThesis").controller('ReportsController', function($sco
      }
   }
 
- for(var i=0; i<bookings.length; i++) {
-   for(var j=0; j<bookings[i].rooms.length; j++) {
-     var roomNb = bookings[i].rooms[j].substr(5);
+ for(var i=0; i<$scope.bookings.length; i++) {
+   for(var j=0; j<$scope.bookings[i].rooms.length; j++) {
+     var roomNb = $scope.bookings[i].rooms[j].substr(5);
 
-     if(allRooms[roomNb-1].type == 'Single') {
-       singles[$filter('date')(bookings[i].checkin, 'M')-1]++;
+     if($scope.allRooms[roomNb-1].type == 'Single') {
+       singles[$filter('date')($scope.bookings[i].checkin, 'M')-1]++;
      }
-     else if(allRooms[roomNb-1].type == 'Double') {
-       doubles[$filter('date')(bookings[i].checkin, 'M')-1]++;
+     else if($scope.allRooms[roomNb-1].type == 'Double') {
+       doubles[$filter('date')($scope.bookings[i].checkin, 'M')-1]++;
      }
      else {
-       triples[$filter('date')(bookings[i].checkin, 'M')-1]++;
+       triples[$filter('date')($scope.bookings[i].checkin, 'M')-1]++;
      }
 
-     profits[$filter('date')(bookings[i].checkin, 'M')-1] += parseInt(rates[roomNb-1].weekdaysPrice);
+     profits[$filter('date')($scope.bookings[i].checkin, 'M')-1] += parseInt($scope.rates[roomNb-1].weekdaysPrice);
 
    }
  }
 
-for(var i=0; i<bookings.length; i++) {
-  days[$filter('date')(bookings[i].checkin, 'M')-1] += $filter('date')(bookings[i].checkout, 'd') - $filter('date')(bookings[i].checkin, 'd');
+for(var i=0; i<$scope.bookings.length; i++) {
+  days[$filter('date')($scope.bookings[i].checkin, 'M')-1] += $filter('date')($scope.bookings[i].checkout, 'd') - $filter('date')($scope.bookings[i].checkin, 'd');
 }
 for(var i=0; i<12; i++) {
   averages[i] = days[i]/reservations[i];

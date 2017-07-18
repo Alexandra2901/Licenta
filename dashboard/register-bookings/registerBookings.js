@@ -2,7 +2,16 @@ angular.module('graduationThesis').controller('RegisterBookingsController', func
   $scope.showHints = true;
   $scope.booking = item || {};
 
-  $scope.rooms = RoomsFactory.getAllRooms();
+  $scope.rooms = [];
+  var initRooms = function () {
+    RoomsFactory.getAllRooms().then(function (result) {
+      console.log('Rooms ', result.data);
+      $scope.rooms = result.data;
+    }, function (error) {
+      alert("Error!");
+    });
+  };
+initRooms();
 
   $scope.saveBooking = function() {
     BookingsFactory.addBooking($scope.booking).then(function (result) {

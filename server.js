@@ -159,6 +159,7 @@ bookingsRouter.post('/', function (req, res) {
     var newItem = new Booking(model);
     newItem.save(function (err, created) {
         if (!!err) {
+            console.log("in server", err);
             return res.sendStatus(500);
         }
         return res.status(200).send(created);

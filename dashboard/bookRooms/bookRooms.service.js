@@ -146,8 +146,10 @@ angular.module("graduationThesis").factory("BookingsFactory", function($rootScop
 
   bookingsObject.addBooking = function(booking) {
     var deferred = $q.defer();
+    console.log("aici");
 
     if (booking._id) { // check if has _id property - this is mongodb id so we need to edit it
+      console.log("intra pe if");
       // Edit
       $http.put('/api/bookings/' + booking._id, booking).then(function(data) {
         deferred.resolve(data);
@@ -155,10 +157,13 @@ angular.module("graduationThesis").factory("BookingsFactory", function($rootScop
         deferred.reject(error);
       });
     } else {
+      console.log("intra pe else");
       // Insert new
       $http.post('/api/bookings', booking).then(function(data) {
+        console.log("a ajuns aici");
         deferred.resolve(data);
       }, function(error) {
+        console.log("error", error);
         deferred.reject(error);
       });
     }

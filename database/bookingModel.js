@@ -17,9 +17,10 @@ var BookingSchema = new Schema({
     checkout: {
         type: Date
     },
-    rooms: {
-        type: Array
-    },
+    rooms: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Room'
+    }],
     name: {
         type: String
     },
