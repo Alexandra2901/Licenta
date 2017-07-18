@@ -85,7 +85,6 @@ roomsRouter.delete('/:id', function (req, res) {
 
 app.use('/api/rooms', roomsRouter);
 
-<<<<<<< HEAD
 //Rates
 var ratesRouter = express.Router();
 ratesRouter.get('/', function (req, res) {
@@ -199,9 +198,6 @@ bookingsRouter.delete('/:id', function (req, res) {
 
 app.use('/api/bookings', bookingsRouter);
 
-
-=======
->>>>>>> origin/master
 // Connect to db then start the server
 mongoose.connect(dbUri, {}, function (err) {
     // Error
@@ -220,8 +216,3 @@ mongoose.connect(dbUri, {}, function (err) {
 
     }
 });
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
