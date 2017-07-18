@@ -4,7 +4,8 @@ angular.module("graduationThesis").controller('ReportsController', function ($sc
   $scope.allRooms = [];
   $scope.rates = [];
 
-  function init() {
+
+  var init = function() {
     RoomsFactory.getAllRooms().then(function (result) {
       $scope.allRooms = result.data;
 
@@ -29,6 +30,7 @@ angular.module("graduationThesis").controller('ReportsController', function ($sc
       alert("Error!");
     });
   }
+
 
   function renderCharts() {
     var reservations = [];
@@ -126,8 +128,8 @@ angular.module("graduationThesis").controller('ReportsController', function ($sc
       data: {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         datasets: [{
-          backgroundColor: ['rgba(84, 196, 194, 0.5)'],
-          borderColor: ['rgba(84, 196, 194, 1)'],
+          // backgroundColor: ['rgba(84, 196, 194, 0.5)'],
+          // borderColor: ['rgba(84, 196, 194, 1)'],
           label: '# of Reservations',
           data: reservations,
           borderWidth: 1
@@ -242,9 +244,8 @@ angular.module("graduationThesis").controller('ReportsController', function ($sc
 
     var ctxPie = document.getElementById('pieChart').getContext('2d');
     new Chart(ctxPie, pieChartOptions);
-  }
 
-  init();
+}
 
-
+    init();
 });

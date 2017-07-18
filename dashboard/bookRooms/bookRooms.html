@@ -22,9 +22,9 @@
                   <th>Actions</th>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="booking in bookings | filter:searchBox">
-                    <td>{{booking.checkin | date:'dd-MM-yyyy'}}</td>
-                    <td>{{booking.checkout | date:'dd-MM-yyyy'}}</td>
+                  <tr ng-repeat="booking in bookings | myFilter:searchBox ">
+                    <td>{{booking.checkin | date:'dd-MM-yyyy' : '+0200'}}</td>
+                    <td>{{booking.checkout | date:'dd-MM-yyyy'  : '+0200'}}</td>
                     <td>
                       <div ng-repeat="room in booking.rooms">{{room.name}}</div>
                       <!-- {{arrayToString(booking.rooms)}} -->
