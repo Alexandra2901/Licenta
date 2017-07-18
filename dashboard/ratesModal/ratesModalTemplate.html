@@ -13,12 +13,12 @@
           <form name="rateForm">
             <div layout="column">
 
-              <md-input-container class="md-block" flex-gt-sm>
+              <!-- <md-input-container class="md-block" flex-gt-sm>
                 <label>Room name</label>
-                <input  ng-model="rate.name" />
+                <input ng-model="rate.name" />
                 <div ng-messages="rateForm.rateNumber.$error" ng-if="!showHints">
                 </div>
-              </md-input-container>
+              </md-input-container> -->
 
               <style>
                 body[dir=rtl] .hint {
@@ -28,29 +28,36 @@
               </style>
 
               <md-input-container style="margin-right: 10px;">
+                <label>Choose room</label>
+                <md-select ng-model="rate.roomId">
+                  <md-option ng-repeat="room in rooms" ng-value="room._id" >{{room.name}}</md-option>
+                </md-select>
+              </md-input-container>
+
+              <md-input-container style="margin-right: 10px;" >
                 <label>Type</label>
-                <md-select ng-model="rate.type">
-                  <md-option  ng-repeat="type in types" ng-value="type">{{type}}</md-option>
+                <md-select ng-model="rate.room.type" ng-disabled="true">
+                  <md-option ng-repeat="type in types" ng-value="type">{{type}}</md-option>
                 </md-select>
               </md-input-container>
 
               <md-input-container style="margin-right: 10px;">
                 <label>Bathroom in room</label>
-                <md-select ng-model="rate.bath">
+                <md-select ng-model="rate.room.bath" ng-disabled="true">
                   <md-option ng-repeat="bath in bathTypes" ng-value="bath">{{bath}}</md-option>
                 </md-select>
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm>
                 <label>Weekdays price</label>
-                <input  ng-model="rate.weekdaysPrice" />
+                <input ng-model="rate.weekdaysPrice" />
                 <div ng-messages="rateForm.rateNumber.$error" ng-if="!showHints">
                 </div>
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm>
                 <label>Weekend price</label>
-                <input  ng-model="rate.weekendPrice" />
+                <input ng-model="rate.weekendPrice" />
                 <div ng-messages="rateForm.rateNumber.$error" ng-if="!showHints">
                 </div>
               </md-input-container>

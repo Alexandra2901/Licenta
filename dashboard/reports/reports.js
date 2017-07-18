@@ -4,37 +4,6 @@ angular.module("graduationThesis").controller('ReportsController', function ($sc
   $scope.allRooms = [];
   $scope.rates = [];
 
-  // var initBookings = function () {
-  //   BookingsFactory.getAllBookings().then(function (result) {
-  //     console.log('Bookings ', result.data);
-  //     $scope.bookings = result.data;
-  //   }, function (error) {
-  //     alert("Error!");
-  //   });
-  // };
-  // initBookings();
-
-
-  // var initRooms = function () {
-  //   RoomsFactory.getAllRooms().then(function (result) {
-  //     console.log('Rooms ', result.data);
-  //     $scope.allRooms = result.data;
-  //   }, function (error) {
-  //     alert("Error!");
-  //   });
-  // };
-  // initRooms();
-
-
-  // var initRates = function () {
-  //   RatesFactory.getAllRates().then(function (result) {
-  //     console.log('Rates ', result.data);
-  //     $scope.rates = result.data;
-  //   }, function (error) {
-  //     alert("Error!");
-  //   });
-  // };
-
   function init() {
     RoomsFactory.getAllRooms().then(function (result) {
       $scope.allRooms = result.data;
@@ -134,7 +103,13 @@ angular.module("graduationThesis").controller('ReportsController', function ($sc
           triples[$filter('date')($scope.bookings[i].checkin, 'M') - 1]++;
         }
 
-        profits[$filter('date')($scope.bookings[i].checkin, 'M') - 1] += parseInt($scope.rates[roomNb - 1].weekdaysPrice);
+        var profit = 0;
+        for (var rr = 0; rr < $scope.rates.length; rr++) {
+          if ($scope.rates[rr].room._id == roomNb._id) {
+            profit += parseInt($scope.rates[rr].weekdaysPrice);
+          }
+        }
+        profits[$filter('date')($scope.bookings[i].checkin, 'M') - 1] += profit;
 
       }
     }

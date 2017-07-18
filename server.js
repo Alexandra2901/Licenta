@@ -90,6 +90,7 @@ var ratesRouter = express.Router();
 ratesRouter.get('/', function (req, res) {
     Rate
         .find({})
+        .populate('room')
         .exec(function (err, result) {
             if (err) {
                 return res.sendStatus(500);

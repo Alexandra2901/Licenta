@@ -11,14 +11,9 @@ var mongoose = require('mongoose'),
  * Schema
  */
 var RateSchema = new Schema({
-    name: {
-        type: String
-    },
-    type: {
-        type: String
-    },
-    bath: {
-        type: String
+    room: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Room'
     },
     weekdaysPrice: {
         type: String
